@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 
-export default function Countdown({ labels = { days: "Days", hours: "Hrs", minutes: "Min", seconds: "Sec" } }) {
+export default function Countdown({ labels = { days: "Days", hours: "Hrs", minutes: "Min", seconds: "Sec" }, lang = "en" }) {
   // Set wedding date: February 06, 2026 19:38:00
   const targetDate = new Date("2026-02-06T19:38:00").getTime();
   
@@ -11,6 +11,16 @@ export default function Countdown({ labels = { days: "Days", hours: "Hrs", minut
     minutes: 0,
     seconds: 0
   });
+
+  const toBengaliNumber = (num) => {
+    if (lang !== "bn") return num;
+    const englishDigits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+    const bengaliDigits = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
+    return num.toString().split("").map(digit => {
+      const index = englishDigits.indexOf(digit);
+      return index !== -1 ? bengaliDigits[index] : digit;
+    }).join("");
+  };
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -35,13 +45,15 @@ export default function Countdown({ labels = { days: "Days", hours: "Hrs", minut
 
   const TimeBlock = ({ value, label }) => (
     <div className="flex flex-col items-center justify-center p-4 bg-[var(--card)] border border-[var(--accent)]/30 rounded-xl shadow-lg min-w-[80px] sm:min-w-[100px]">
-      <span className="text-3xl sm:text-4xl font-serif font-bold text-[var(--primary)]">{value}</span>
+      <span className={`text-3xl sm:text-4xl font-bold text-[var(--primary)] ${lang === 'bn' ? 'font-bn' : 'font-serif'}`}>
+        {toBengaliNumber(value)}
+      </span>
       <span className="text-xs sm:text-sm uppercase tracking-widest text-[var(--foreground)] opacity-70">{label}</span>
     </div>
   );
 
   return (
-    <div className="flex gap-4 justify-center items-center py-8">
+    <div className="flex gap-2 sm:gap-4 justify-center items-center py-8">
       <TimeBlock value={timeLeft.days} label={labels.days} />
       <TimeBlock value={timeLeft.hours} label={labels.hours} />
       <TimeBlock value={timeLeft.minutes} label={labels.minutes} />
@@ -49,4 +61,5 @@ export default function Countdown({ labels = { days: "Days", hours: "Hrs", minut
     </div>
   );
 }
+
 

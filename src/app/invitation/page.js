@@ -27,7 +27,8 @@ const translations = {
     timings: "Event Timings",
     ctaMaps: "Google Maps",
     presence: "Your Presence is Extremely Important to Us",
-    footerMsg: "Designed with 🕉️ for a sacred union"
+    footerMsg: "Designed with 🕉️ for a sacred union",
+    withLove: "With Love, Chaity & Joy"
   },
   bn: {
     subtitle: "বিবাহের আমন্ত্রণ",
@@ -48,7 +49,8 @@ const translations = {
     timings: "অনুষ্ঠানের সূচি",
     ctaMaps: "গুগল ম্যাপ",
     presence: "আপনার উপস্থিতি আমাদের কাছে অত্যন্ত গুরুত্বপূর্ণ",
-    footerMsg: "পবিত্র মিলনের জন্য 🕉️ সহযোগে তৈরি"
+    footerMsg: "পবিত্র মিলনের জন্য 🕉️ সহযোগে তৈরি",
+    withLove: "শুভেচ্ছান্তে, চৈতি ও জয়"
   }
 };
 
@@ -78,10 +80,10 @@ export default function InvitationPage() {
           <div className="inline-block px-4 py-1 border border-[var(--primary)] rounded-full text-[var(--primary)] text-sm font-semibold tracking-widest uppercase">
             {t.subtitle}
           </div>
-          <h1 className={`text-6xl sm:text-9xl text-[var(--primary)] drop-shadow-sm flex flex-col sm:flex-row items-center justify-center gap-2 ${lang === 'en' ? 'font-serif' : 'font-bn font-bold'}`}>
-            <span className="animate-fade-in-left">Chaity</span>
-            <span className="text-4xl sm:text-7xl italic text-[var(--accent)] font-serif p-4 bg-[var(--primary)]/10 rounded-full border border-[var(--accent)]/20 mx-2 shadow-inner inline-flex items-center justify-center w-16 h-16 sm:w-24 sm:h-24 dark:bg-[var(--accent)]/10">&</span>
-            <span className="animate-fade-in-right">Joy</span>
+          <h1 className={`text-6xl sm:text-9xl text-[var(--primary)] drop-shadow-sm flex flex-col sm:flex-row items-center justify-center gap-2 ${lang === 'bn' ? 'font-bn font-bold' : 'font-serif'}`}>
+            <span className="animate-fade-in-left">{t.couple.split(/&|ও/).map(n => n.trim())[0]}</span>
+            <span className="text-4xl sm:text-7xl italic text-[var(--accent)] font-serif p-4 bg-[var(--primary)]/10 rounded-full border border-[var(--accent)]/20 mx-2 shadow-inner inline-flex items-center justify-center w-16 h-16 sm:w-24 sm:h-24 dark:bg-[var(--accent)]/10">{lang === 'bn' ? 'ও' : '&'}</span>
+            <span className="animate-fade-in-right">{t.couple.split(/&|ও/).map(n => n.trim())[1]}</span>
           </h1>
           <div className="space-y-4 pt-4">
             <p className="text-2xl sm:text-3xl text-[var(--foreground)] font-serif italic font-medium">
@@ -92,13 +94,13 @@ export default function InvitationPage() {
               <span className="hidden sm:inline opacity-50 text-[var(--accent)]">•</span>
               <span>{t.tithi}</span>
             </div>
-            <p className="text-lg font-bold text-[var(--foreground)] opacity-90 dark:opacity-100">
+            <p className={`text-lg font-bold text-[var(--foreground)] opacity-90 dark:opacity-100 ${lang === 'bn' ? 'font-bn' : 'font-sans'}`}>
               {t.time}
             </p>
           </div>
 
           <div className="pt-8">
-            <Countdown labels={t} />
+            <Countdown labels={t} lang={lang} />
           </div>
         </div>
       </section>
@@ -187,7 +189,7 @@ export default function InvitationPage() {
       </section>
 
       <footer className="py-16 bg-[var(--navy-dark)] text-[var(--ivory)] text-center border-t border-[var(--gold)]/20">
-        <p className={`font-serif italic text-2xl ${lang === 'bn' ? 'font-bn' : ''}`}>With Love, Chaity & Joy</p>
+        <p className={`italic text-2xl ${lang === 'bn' ? 'font-bn' : 'font-serif'}`}>{t.withLove}</p>
         <p className="mt-4 opacity-70 text-sm tracking-widest uppercase">{t.footerMsg}</p>
       </footer>
     </div>
