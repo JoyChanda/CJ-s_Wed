@@ -6,7 +6,7 @@
   --color-gold: #D4AF37;
   --color-navy-dark: #0E1A2B;
   --color-navy-light: #1B2B44;
-  
+
   --font-serif: "Playfair Display", serif;
   --font-sans: "Inter", sans-serif;
 }
@@ -21,9 +21,12 @@
 
 .dark {
   --background: #0E1A2B;
-  --foreground: #F5E6BE;
-  --primary: #D4AF37;
-  --accent: #F3E5AB;
+  --foreground: #FDF6E3;
+  /* Slightly brighter ivory for better contrast */
+  --primary: #FFD700;
+  /* More vibrant gold for dark mode */
+  --accent: #F9E79F;
+  /* Brighter accent color */
   --card: #1B2B44;
 }
 
@@ -37,5 +40,13 @@
   .glass {
     @apply bg-white/10 backdrop-blur-md border border-white/20;
   }
-}
 
+  /* Text readability improvements for dark mode */
+  .dark .text-muted {
+    @apply text-[var(--foreground)] opacity-80;
+  }
+
+  .dark .text-primary-bright {
+    @apply text-[var(--primary)] brightness-125;
+  }
+}

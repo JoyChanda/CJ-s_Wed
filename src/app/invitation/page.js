@@ -80,19 +80,19 @@ export default function InvitationPage() {
           </div>
           <h1 className={`text-6xl sm:text-9xl text-[var(--primary)] drop-shadow-sm flex flex-col sm:flex-row items-center justify-center gap-2 ${lang === 'en' ? 'font-serif' : 'font-bn font-bold'}`}>
             <span className="animate-fade-in-left">Chaity</span>
-            <span className="text-4xl sm:text-7xl italic text-[var(--accent)] font-serif p-4 bg-[var(--primary)]/5 rounded-full border border-[var(--accent)]/10 mx-2 shadow-inner inline-flex items-center justify-center w-16 h-16 sm:w-24 sm:h-24">&</span>
+            <span className="text-4xl sm:text-7xl italic text-[var(--accent)] font-serif p-4 bg-[var(--primary)]/10 rounded-full border border-[var(--accent)]/20 mx-2 shadow-inner inline-flex items-center justify-center w-16 h-16 sm:w-24 sm:h-24 dark:bg-[var(--accent)]/10">&</span>
             <span className="animate-fade-in-right">Joy</span>
           </h1>
           <div className="space-y-4 pt-4">
-            <p className="text-2xl sm:text-3xl text-[var(--foreground)] font-serif italic opacity-90">
+            <p className="text-2xl sm:text-3xl text-[var(--foreground)] font-serif italic font-medium">
               {t.date}
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-sm sm:text-base tracking-[0.1em] font-medium text-[var(--primary)] uppercase opacity-80 decoration-[var(--accent)] underline-offset-8">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-sm sm:text-base tracking-[0.15em] font-semibold text-[var(--primary)] uppercase decoration-[var(--accent)] underline-offset-8">
               <span>{t.bengaliDate}</span>
-              <span className="hidden sm:inline opacity-30">•</span>
+              <span className="hidden sm:inline opacity-50 text-[var(--accent)]">•</span>
               <span>{t.tithi}</span>
             </div>
-            <p className="text-lg font-medium text-[var(--foreground)] opacity-70">
+            <p className="text-lg font-bold text-[var(--foreground)] opacity-90 dark:opacity-100">
               {t.time}
             </p>
           </div>
@@ -109,15 +109,15 @@ export default function InvitationPage() {
       <section className="py-20 bg-[var(--background)]">
         <Container className="text-center space-y-8">
           <div className="max-w-3xl mx-auto space-y-6">
-            <h2 className="text-3xl font-serif text-[var(--primary)] mb-8 uppercase tracking-[0.2em]">{t.mantraTitle}</h2>
+            <h2 className="text-3xl font-serif text-[var(--primary)] mb-8 uppercase tracking-[0.2em] font-bold">{t.mantraTitle}</h2>
             <div className="p-8 sm:p-14 bg-[var(--card)] rounded-[40px] border border-[var(--accent)]/30 shadow-2xl relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-20 h-20 border-l-4 border-t-4 border-[var(--primary)]/20 rounded-tl-[40px]"></div>
-              <div className="absolute bottom-0 right-0 w-20 h-20 border-r-4 border-b-4 border-[var(--primary)]/20 rounded-br-[40px]"></div>
+              <div className="absolute top-0 left-0 w-20 h-20 border-l-4 border-t-4 border-[var(--primary)]/30 rounded-tl-[40px]"></div>
+              <div className="absolute bottom-0 right-0 w-20 h-20 border-r-4 border-b-4 border-[var(--primary)]/30 rounded-br-[40px]"></div>
               
-              <p className={`text-2xl sm:text-3xl text-[var(--foreground)] leading-relaxed italic ${lang === 'bn' ? 'font-bn' : 'font-serif'}`}>
+              <p className={`text-2xl sm:text-3xl text-[var(--foreground)] leading-relaxed italic font-medium ${lang === 'bn' ? 'font-bn' : 'font-serif'}`}>
                 &ldquo;{t.mantra}&rdquo;
               </p>
-              <p className="mt-8 text-[var(--primary)] font-semibold tracking-widest uppercase">
+              <p className="mt-8 text-[var(--primary)] font-bold tracking-widest uppercase">
                 — {t.blessing} —
               </p>
             </div>
@@ -131,19 +131,19 @@ export default function InvitationPage() {
       <section className="py-20 px-4">
         <Container>
           <div className="max-w-4xl mx-auto">
-            <Card className="p-10 sm:p-16 text-center space-y-10 hover:translate-y-[-8px] transition-transform duration-300 relative overflow-hidden">
+            <Card className="p-10 sm:p-16 text-center space-y-10 hover:translate-y-[-8px] transition-transform duration-300 relative overflow-hidden bg-[var(--card)]">
               {/* Decorative background mandala hint */}
-              <div className="absolute top-[-50px] right-[-50px] w-64 h-64 bg-[var(--accent)]/5 rounded-full blur-3xl"></div>
+              <div className="absolute top-[-50px] right-[-50px] w-64 h-64 bg-[var(--accent)]/10 rounded-full blur-3xl"></div>
               
               <div className="space-y-4 relative z-10">
-                <h3 className="text-3xl font-serif text-[var(--primary)] uppercase tracking-widest">{t.ceremony}</h3>
+                <h3 className="text-3xl font-serif text-[var(--primary)] uppercase tracking-widest font-bold">{t.ceremony}</h3>
                 <div className="h-1 w-20 bg-[var(--accent)] mx-auto rounded-full"></div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative z-10">
-                <div className="space-y-6 text-center md:text-left md:border-r border-[var(--accent)]/20 md:pr-12">
+                <div className="space-y-6 text-center md:text-left md:border-r border-[var(--accent)]/30 md:pr-12">
                   <h4 className="text-2xl font-bold text-[var(--foreground)]">{t.venue}</h4>
-                  <p className="text-[var(--foreground)] opacity-70 leading-relaxed text-lg">
+                  <p className="text-[var(--foreground)] opacity-90 leading-relaxed text-lg font-medium dark:opacity-100">
                     {t.venueSub}
                   </p>
                   <a 
@@ -152,8 +152,8 @@ export default function InvitationPage() {
                     rel="noopener noreferrer"
                     className="inline-block"
                   >
-                    <Button variant="outline" className="flex items-center gap-2">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                    <Button variant="outline" className="flex items-center gap-2 border-[var(--primary)] font-bold">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
                       </svg>
@@ -163,19 +163,20 @@ export default function InvitationPage() {
                 </div>
 
                 <div className="space-y-6">
-                  <h4 className="text-xl font-serif text-[var(--primary)] uppercase tracking-[0.2em]">{t.timings}</h4>
+                  <h4 className="text-xl font-serif text-[var(--primary)] uppercase tracking-[0.2em] font-bold">{t.timings}</h4>
                   <div className="space-y-4">
-                    <div className="p-4 bg-[var(--background)]/50 rounded-2xl border border-[var(--accent)]/10">
-                      <p className="text-[var(--foreground)] font-medium text-lg leading-relaxed">{t.shubhoLagna}</p>
+                    <div className="p-4 bg-[var(--primary)]/5 rounded-2xl border border-[var(--accent)]/20 shadow-sm">
+                      <p className="text-[var(--foreground)] font-bold text-lg leading-relaxed">{t.shubhoLagna}</p>
                     </div>
-                    <div className="p-4 bg-[var(--background)]/50 rounded-2xl border border-[var(--accent)]/10">
-                      <p className="text-[var(--foreground)] font-medium text-lg leading-relaxed">{t.weddingFeast}</p>
+                    <div className="p-4 bg-[var(--primary)]/5 rounded-2xl border border-[var(--accent)]/20 shadow-sm">
+                      <p className="text-[var(--foreground)] font-bold text-lg leading-relaxed">{t.weddingFeast}</p>
                     </div>
                   </div>
                 </div>
               </div>
             </Card>
           </div>
+
           
           <div className="mt-20 text-center animate-pulse">
             <p className={`text-2xl sm:text-3xl text-[var(--primary)] font-serif italic ${lang === 'bn' ? 'font-bn' : ''}`}>
